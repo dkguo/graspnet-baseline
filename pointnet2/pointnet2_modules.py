@@ -196,8 +196,8 @@ class PointnetSAModuleVotes(nn.Module):
 
         if npoint is not None:
             self.grouper = pointnet2_utils.QueryAndGroup(radius, nsample,
-                use_xyz=use_xyz, ret_grouped_xyz=True, normalize_xyz=normalize_xyz,
-                sample_uniformly=sample_uniformly, ret_unique_cnt=ret_unique_cnt)
+                                                         use_xyz=use_xyz, ret_grouped_xyz=True, normalize_xyz=normalize_xyz,
+                                                         sample_uniformly=sample_uniformly, ret_unique_cnt=ret_unique_cnt)
         else:
             self.grouper = pointnet2_utils.GroupAll(use_xyz, ret_grouped_xyz=True)
 
@@ -443,7 +443,7 @@ class PointnetLFPModuleMSG(nn.Module):
             nsample = nsamples[i]
             self.groupers.append(
                 pointnet2_utils.QueryAndGroup(radius, nsample, use_xyz=use_xyz,
-                    sample_uniformly=sample_uniformly)
+                                              sample_uniformly=sample_uniformly)
             )
             mlp_spec = mlps[i]
             if use_xyz:

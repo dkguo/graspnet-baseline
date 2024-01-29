@@ -117,8 +117,8 @@ def demo(data_dir):
     gg = get_grasps(net, end_points)
     if cfgs.collision_thresh > 0:
         gg = collision_detection(gg, np.array(cloud.points))
-    vis_grasps(gg, cloud)
+    # vis_grasps(gg, cloud)
 
 if __name__=='__main__':
-    data_dir = 'doc/example_data'
+    data_dir = '/home/gdk/Repositories/DualArmManipulation/evaluation/graspnet_baseline/doc/example_data'
     demo(data_dir)
