@@ -114,10 +114,14 @@ def vis_grasps(gg, cloud):
 def demo(data_dir):
     net = get_net()
     end_points, cloud = get_and_process_data(data_dir)
+    print(end_points['point_clouds'].shape, end_points['cloud_colors'].shape)
+    print(np.array(cloud.points).shape)
     gg = get_grasps(net, end_points)
+    print(gg)
     if cfgs.collision_thresh > 0:
         gg = collision_detection(gg, np.array(cloud.points))
-    vis_grasps(gg, cloud)
+    print(gg)
+    # vis_grasps(gg, cloud)
 
 if __name__=='__main__':
     data_dir = 'doc/example_data'
